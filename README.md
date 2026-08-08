@@ -6,8 +6,8 @@ The table below tracks the competitions I have completed and the ones I plan to 
 
 | # | Competition | Problem Type | Status |
 |---|---|---|---|
-| 1 | [Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic) | Classification | ✅ Completed |
-| 2 | Predicting Smartphone Addiction | Classification | ✅ Completed |
+| 1 | Titanic - Machine Learning from Disaster | Classification | ✅ [Completed](https://www.kaggle.com/code/amandubal/titanic-machine-learning-from-disaster-ipynb) |
+| 2 | Predicting Smartphone Addiction | Classification | ✅ [Completed](https://www.kaggle.com/code/amandubal/predicting-smartphone-addiction-ipynb) |
 | 3 | **Next Competition** | — | 🔜 Coming Soon |
 | 4 | **Next Competition** | — | 🔜 Coming Soon |
 | 5 | **Next Competition** | — | 🔜 Coming Soon |
