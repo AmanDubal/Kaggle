@@ -10,4 +10,4 @@ The table below tracks the competitions I have completed and the ones I plan to 
 | 2 | Predicting Smartphone Addiction | Classification | ✅ [Completed](https://www.kaggle.com/code/amandubal/predicting-smartphone-addiction-ipynb) |
 | 3 | **Next Competition** | — | 🔜 Coming Soon |
 
-#Dont Forget To Follow 👍👍
+## Dont Forget To Follow 👍👍
