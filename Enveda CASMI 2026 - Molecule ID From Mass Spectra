@@ -2,41 +2,6 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "355299ed",
-   "metadata": {},
-   "source": [
-    "# CASMI — Fast Offline Retrieval\n",
-    "Run all cells in order. Internet OFF. Attach official competition files and the existing RDKit wheel dataset. CPU is sufficient. Output: `/kaggle/working/submission.csv`.\n",
-    "\n",
-    "## Changes and limits\n",
-    "- Uses IDs from the current test file; no public sample dependency.\n",
-    "- Streams training spectra; retains the mass-matched candidates without an arbitrary top-80 cut.\n",
-    "- Optional Numba compilation accelerates greedy matching; tested Python fallback needs no extra installation.\n",
-    "- Tautomer canonicalization is deferred until ranking, avoiding work for candidates that are never submitted. Scores are aggregated by input SMILES before final identity deduplication; this can differ from aggregating evidence across tautomers first.\n",
-    "- Supports formula-based adducts, ignores malformed spectra, and logs fallback use. When no usable candidate exists, a frequency-based prior from real training structures supplies valid guesses. This is a weak fallback, not an identification.\n",
-    "- No model training, external downloads, global exception suppression, or fake success messages. Missing required input/dependencies still produce actionable errors.\n",
-    "\n",
-    "## Reference review\n",
-    "The supplied de novo example uses unshifted training targets and incomplete generation context; it is not included. The two supplied multi-channel rankers require `rank_train.npz`, `fp_bits.npy`, `coco_meta.pkl`, `coco_mass.npy`, `coco_fp.npy`, and FPNet checkpoints for their complete pipeline. Those assets were not supplied, so their ranker and reported scores are not reproduced here. Ideas retained: mass-constrained candidate search, multi-spectrum evidence, offline execution and optional compiled matching.\n",
-    "\n",
-    "The reference score claims are unverified. This notebook is a fast retrieval baseline, not a demonstrated best-accuracy solution. Structures absent from the training library cannot be recovered. Kaggle hidden-run acceptance is not guaranteed.\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "074df4cf",
-   "metadata": {},
-   "source": [
-    "## Local validation — 19 September 2026\n",
-    "All 11 code cells executed on a six-molecule synthetic fixture with socket connections blocked. Tests covered new IDs, a mismatched public sample and an absent sample, repeated spectrum IDs, multiply charged ions, dimer mass calculation, unknown adducts, missing/zero precursor masses, missing/mismatched/zero/empty peak arrays, and nearest-mass fallbacks. Output contained exactly the current test IDs and valid, deduplicated SMILES. Only `submission.csv` was written to the output folder.\n",
-    "\n",
-    "Both Numba and forced Python fallback runs passed and produced identical CSVs. One hundred randomized similarity comparisons agreed within 1e-10. After compilation, 2,000 synthetic 128-peak comparisons took 0.0069 seconds compiled versus 0.1457 seconds in Python in this environment (~21x kernel speedup). This is not a full-dataset or Kaggle runtime benchmark. Initial compilation added about 2 seconds in the fixture run.\n",
-    "\n",
-    "Full official-data execution, hidden-data acceptance, model accuracy, and the reference rankers' external assets were not verified in this revision. RDKit was already installed during these tests; the retained offline installation cell uses the previously supplied wheel dataset."
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "17e43ba1",
    "metadata": {},
    "source": [
